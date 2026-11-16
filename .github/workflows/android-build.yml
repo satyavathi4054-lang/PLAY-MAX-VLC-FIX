@@ -1,5 +1,5 @@
-
-name: PLAY MAX Three Player Updates Build
+ 
+name: PLAY MAX Background Resume Fix Build
 
 on:
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          ZIP_FILE=$(find . -maxdepth 2 -type f -name 'PLAY_MAX_THREE_PLAYER_UPDATES.zip' -print -quit)
+          ZIP_FILE=$(find . -maxdepth 2 -type f -name 'PLAY_MAX_BACKGROUND_RESUME_FIX.zip' -print -quit)
 
           if [ -z "$ZIP_FILE" ]; then
             echo "ERROR: ZIP file not found"
@@ -62,8 +62,8 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: PLAY-MAX-THREE-PLAYER-UPDATES
+          name: PLAY-MAX-BACKGROUND-RESUME-FIX
           path: ${{ env.PROJECT_DIR }}/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 14
- 
+          
