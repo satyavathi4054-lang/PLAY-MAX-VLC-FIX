@@ -1,5 +1,5 @@
-
-name: PLAY MAX VLC Crop To Fill Build
+ 
+name: PLAY MAX VLC Auto Hide Controls Build
 
 on:
   workflow_dispatch:
@@ -30,10 +30,11 @@ jobs:
         shell: bash
         run: |
           set -e
-          ZIP_FILE=$(find . -maxdepth 2 -type f -name 'PLAY_MAX_VLC_CROP_TO_FILL_FIX.zip' -print -quit)
+
+          ZIP_FILE=$(find . -maxdepth 2 -type f -name 'PLAY_MAX_VLC_AUTO_HIDE_CONTROLS_FIX.zip' -print -quit)
 
           if [ -z "$ZIP_FILE" ]; then
-            echo "ERROR: ZIP file not found"
+            echo "ERROR: Auto Hide ZIP file not found"
             exit 1
           fi
 
@@ -62,7 +63,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: PLAY-MAX-VLC-CROP-TO-FILL
+          name: PLAY-MAX-VLC-AUTO-HIDE-CONTROLS
           path: ${{ env.PROJECT_DIR }}/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 14
